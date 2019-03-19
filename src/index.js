@@ -1,5 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import styles from "./styles.css"
+
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
 
 const element = React.createElement(
     "h1",
@@ -10,7 +15,7 @@ const element = React.createElement(
 
 class HallowWorldComponent extends React.Component {
     render() {
-        return <h1>React.Component</h1>
+        return <h1 className={styles.hello}>React.Component</h1>
     }
 
 }
@@ -37,7 +42,7 @@ class MainComponent extends React.Component {
                 {element}
                 <HallowWorldComponent/>
                 <HallowWorldPureComponent/>
-                {FunctionComponent()}
+                <FunctionComponent/>
             </React.Fragment>
         )
     }
