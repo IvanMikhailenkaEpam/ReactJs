@@ -48,5 +48,5 @@ class MainComponent extends React.Component {
     }
 }
 
-ReactDOM.render(<MainComponent/>, document.getElementById("app"));
+/*ReactDOM.render(<MainComponent/>, document.getElementById("app"));*/
 
