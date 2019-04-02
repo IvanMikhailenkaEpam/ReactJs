@@ -1,6 +1,12 @@
 {
-  "extends": "airbnb",
+  "extends" : "airbnb",
+  "parser": "babel-eslint",
   "rules": {
-    "func-names": ["error", "never"]
+    "jsx-a11y/href-no-hash": ["off"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]
+  },
+  "env": {
+    "browser": true
   }
 }

@@ -1,115 +1,19 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <title>React Test Project</title>
-  <meta charset="UTF-8"/>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-grid.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-reboot.css">
 </head>
-
 <body>
-<div id="app"></div>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark header">
-  <div class="container">
-    <div class="row mt-1" style="width: 100%;">
-      <div class="col">
-        <span style="color: white">netflixroulette</span>
-      </div>
-      <div class="col-12 mt-5" style="color: white"><span>FIND YOUR MOVIE</span></div>
-      <div class="col-12">
-        <form class="col-12 form-inline my-2 my-lg-0 pl-0">
-          <input class="form-control mr-sm-2"
-                 style="color: white; width: 100%; background-color: black; border: 0; border-bottom: 2px solid #F85266;"
-                 type="text" placeholder="Search" aria-label="Search">
-        </form>
-      </div>
 
-      <div class="col-4 mt-3 mb-4 ">
-        <span class="mr-3" style="color: white; font-weight: bold;">SEARCH BY</span>re
-        <button class="btn my-2 my-sm-0"
-                style="color: white; background-color: #F85266; width: 100px; font-weight: bold;">TITLE
-        </button>
-        <button class="btn my-2 my-sm-0"
-                style="color: white; background-color: #3C3B39; width: 100px; font-weight: bold;">GENRE
-        </button>
-      </div>
-      <div class="col-2 mt-3 mb-4 ml-auto" style="left: -15px;">
-        <button class="btn my-2 my-sm-0"
-                style="color: white; background-color: #F85266; width: 150px; font-weight: bold;">SEARCH
-        </button>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<div class="pt-3 pb-3" style="background-color: #e9ecef;">
-  <div class="container">
-    <div class="row mr-3 pr-3">
-      <div class="col-3"><span style="font-weight: bold">7 movies found</span></div>
-      <div class="col-auto ml-auto">
-        <span class="mr-3" style="font-weight: bold;">Sort by</span>
-        <span class="mr-5" style="font-weight: bold">release date</span>
-        <span style="font-weight: bold">rating</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<main role="main">
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-md-4 mt-5">
-        <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/783e3b0f-b68e-440e-a980-0e1c19cbe76c/e762d259-b33a-4e43-bcd6-e961c2072ec2/BY-en-20190318-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-            style="width: 350px; height: 450px">
-        <div class="row">
-          <div class="col-auto"><span>name name</span></div>
-          <div class="col-auto ml-auto"><span>age</span></div>
-        </div>
-        <div><span>genre genre</span></div>
-      </div>
-      <div class="col-md-4 mt-5">
-        <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/783e3b0f-b68e-440e-a980-0e1c19cbe76c/e762d259-b33a-4e43-bcd6-e961c2072ec2/BY-en-20190318-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-            style="width: 350px; height: 450px">
-        <div class="row">
-          <div class="col-auto"><span>name name</span></div>
-          <div class="col-auto ml-auto"><span>age</span></div>
-        </div>
-        <div><span>genre genre</span></div>
-      </div>
-      <div class="col-md-4 mt-5">
-        <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/783e3b0f-b68e-440e-a980-0e1c19cbe76c/e762d259-b33a-4e43-bcd6-e961c2072ec2/BY-en-20190318-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-            style="width: 350px; height: 450px">
-        <div class="row">
-          <div class="col-auto"><span>name name</span></div>
-          <div class="col-auto ml-auto"><span>age</span></div>
-        </div>
-        <div><span>genre genre</span></div>
-      </div>
-      <div class="col-md-4 mt-5">
-        <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/783e3b0f-b68e-440e-a980-0e1c19cbe76c/e762d259-b33a-4e43-bcd6-e961c2072ec2/BY-en-20190318-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-            style="width: 350px; height: 450px">
-        <div class="row">
-          <div class="col-auto"><span>name name</span></div>
-          <div class="col-auto ml-auto"><span>age</span></div>
-        </div>
-        <div><span>genre genre</span></div>
-      </div>
-    </div>
-  </div> <!-- /container -->
-</main>
+<div id="root"></div>
 
 
-<footer class="mt-5">
-  <p class="mb-0 ml-4" style="transform: translateY(-50%); top: 50%; position: relative;">netflixroulette</p>
-</footer>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
-
 </html>
