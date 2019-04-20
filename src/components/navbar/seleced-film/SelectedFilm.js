@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 class SelectedFilm extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-md navbar-dark bg-dark header">
-        <div className="container">
+        <div>
           <div className="row mt-1 w-100">
             <div className="col-4">
               <span className="pink font-weight-bold">netflixroulette</span>
@@ -22,8 +21,8 @@ class SelectedFilm extends Component {
           <div className="row mt-4 mb-4">
             <div className="col-auto">
               <img
-                src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg"
-                alt="text"
+                  src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg"
+                  alt="text"
               />
             </div>
             <div className="col-7 ml-5">
@@ -52,7 +51,6 @@ class SelectedFilm extends Component {
             </div>
           </div>
         </div>
-      </nav>
     );
   }
 }

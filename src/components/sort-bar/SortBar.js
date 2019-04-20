@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import './SortByGenre.css';
+import './SortBar.css';
 
-class SortByGenre extends Component {
+class SortBar extends Component {
   render() {
     return (
       <div className="pt-3 pb-3 gray-back">
         <div className="container">
           <div className="row mr-3 pr-3">
-            <div className="col-3 font-weight-bold"><span>Films by Drama genre</span></div>
+            {this.props.info}
+            {this.props.options}
           </div>
         </div>
       </div>
@@ -15,4 +16,4 @@ class SortByGenre extends Component {
   }
 }
 
-export default SortByGenre;
+export default SortBar;

@@ -18,9 +18,9 @@ class Film extends Component {
             alt="text"
           />
         </Link>
-        <div className="row">
+        <div className="row mt-3">
           <div className="col-6"><span>name name</span></div>
-          <div className="col-2 ml-auto"><span>age</span></div>
+          <div className="col-2 ml-auto mr-3"><span className="age">1999</span></div>
         </div>
         <div><span>genre genre</span></div>
       </div>

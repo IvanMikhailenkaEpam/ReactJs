@@ -10,7 +10,7 @@ class SearchResults extends Component {
       <div className="container">
         <div className="row">
           {
-            this.numbers.map(value => <Film id={value} />)
+            this.numbers.map(value => <Film key={value} id={value} />)
           }
         </div>
       </div>
