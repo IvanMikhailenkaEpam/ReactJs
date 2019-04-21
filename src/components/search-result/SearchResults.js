@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './SearchResults.css';
 import Film from './film/Film';
+import * as PropTypes from "prop-types";
 
 class SearchResults extends Component {
-  numbers = [1, 3, 4, 5];
+  static propTypes = {
+    films: PropTypes.array.isRequired,
+  };
 
   render() {
+    const {films} = this.props;
     return (
       <div className="container">
         <div className="row">
           {
-            this.numbers.map(value => <Film key={value} id={value} />)
+            films.map(film => <Film key={film.id} value={film}/>)
           }
         </div>
       </div>

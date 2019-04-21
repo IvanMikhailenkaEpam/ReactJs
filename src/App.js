@@ -11,6 +11,7 @@ class App extends Component {
       <Router>
         <ErrorBoundary>
           <Route exact path="/" component={MovieSearch} />
+          <Route path="/search" component={MovieSearch} />
           <Route path="/movie/:id" component={MovieSelected} />
         </ErrorBoundary>
       </Router>

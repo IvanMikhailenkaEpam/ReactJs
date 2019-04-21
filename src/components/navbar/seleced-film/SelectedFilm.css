@@ -1,37 +1,42 @@
 .search-aria {
-    width: 100%!important;
-    background-color: black!important;
-    border: 0;
-    border-bottom: 2px solid #F85266;
+  width: 100% !important;
+  background-color: black !important;
+  border: 0;
+  border-bottom: 2px solid #F85266;
 }
 
 .button-pink {
-    background-color: #F85266;
-    width: 100px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: #F85266;
+  width: 100px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .button-black {
-    background-color: #3C3B39;
-    width: 100px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: #3C3B39;
+  width: 100px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .search-button {
-    left: -15px;
+  left: -15px;
 }
 
 .search-button > button {
-    background-color: #F85266;
-    width: 150px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: #F85266;
+  width: 150px;
+  font-weight: bold;
+  cursor: pointer;
 }
+
 img {
-    width: 350px;
-    height: 450px
+  width: 350px;
+  height: 450px
+}
+
+.flex {
+  display: flex;
 }
 
 
