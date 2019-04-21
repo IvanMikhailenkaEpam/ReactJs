@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './SortBar.css';
 
 class SortBar extends Component {
   render() {

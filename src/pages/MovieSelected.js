@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Footer from '../components/footer/Footer';
 import SearchResults from '../components/search-result/SearchResults';
 import SelectedFilm from '../components/navbar/seleced-film/SelectedFilm';
 import Navbar from "../components/navbar/Navbar";
@@ -18,7 +17,6 @@ class MovieSelected extends Component {
         <Navbar children={<SelectedFilm film={film}/>} />
         <SortBar info={<SortBarInfo text={sortBarInfo}/>} />
         <SearchResults films={films}/>
-        <Footer />
       </div>
     );
   }

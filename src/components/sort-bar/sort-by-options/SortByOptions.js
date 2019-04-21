@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './SortByOptions.css';
 
 class SortByOptions extends Component {
   render() {

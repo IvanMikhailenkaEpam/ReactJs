@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Navbar from '../components/navbar/Navbar';
-import Footer from '../components/footer/Footer';
 import SortBarInfo from '../components/sort-bar/sort-bar-info/SortBarInfo';
 import SearchResults from '../components/search-result/SearchResults';
 import SearchArea from "../components/navbar/search-area/SearchArea";
@@ -21,7 +20,6 @@ class MovieSearch extends Component {
         <Navbar children={<SearchArea/>}/>
         <SortBar info={<SortBarInfo text={sortBarInfo}/>} options={<SortByOptions/>}/>
         <SearchResults films={films}/>
-        <Footer/>
       </div>
     );
   }
