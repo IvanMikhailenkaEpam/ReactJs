@@ -12,7 +12,7 @@ const queryString = require("query-string");
 
 class MovieSearch extends Component {
   render() {
-    const query = queryString.parse(this.props.location.search);
+    const query = queryString.parse(this.props.location ? this.props.location.search : "");
     let films = MovieSearchService.filterFilms(query.searchBy, query.searchValue);
     let sortBarInfo = films.length + " films found";
 

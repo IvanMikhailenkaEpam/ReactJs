@@ -32,13 +32,13 @@ class SearchArea extends Component {
 
         <div className="col-4 mt-3 mb-4 ">
           <span className="mr-3 white font-weight-bold">SEARCH BY</span>
-          <button
+          <button id="titleBtn"
             className={"btn my-2 my-sm-0 white " + (this.state.isTitleSelected ? "button-pink" : "button-black")}
             type="button" onClick={event => this.searchByTitleClick(event)}
           >
             TITLE
           </button>
-          <button
+          <button id="genreBtn"
             className={"btn my-2 ml-2 my-sm-0 white " + (this.state.isGenreSelected ? "button-pink" : "button-black")}
             type="button" onClick={event => this.searchByGenreClick(event)}
           >
@@ -49,7 +49,7 @@ class SearchArea extends Component {
           <Link to={this.getSearchURL()}>
             <button
               className="btn my-2 my-sm-0 white button-pink"
-              type="button" onClick={event => this.onSearchClick(event)}
+              type="button"
             >
               SEARCH
             </button>
@@ -75,10 +75,6 @@ class SearchArea extends Component {
         isGenreSelected: true
       });
     }
-  }
-
-  onSearchClick(event) {
-    console.log(this.state.searchText)
   }
 
   getSearchURL() {
