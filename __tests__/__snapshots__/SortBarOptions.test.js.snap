@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortByOptions renders SortByOptions correctly 1`] = `
+<div
+  className="col-auto ml-auto"
+>
+  <span
+    className="mr-3 font-weight-bold"
+  >
+    Sort by
+  </span>
+  <span
+    className="mr-5 font-weight-bold pointer"
+    onClick={[Function]}
+  >
+    release date
+  </span>
+  <span
+    className="font-weight-bold pointer"
+    onClick={[Function]}
+  >
+    rating
+  </span>
+</div>
+`;
+
+exports[`SortByOptions renders SortByOptions correctly 2`] = `
+<div
+  className="col-auto ml-auto"
+>
+  <span
+    className="mr-3 font-weight-bold"
+  >
+    Sort by
+  </span>
+  <span
+    className="mr-5 font-weight-bold pointer"
+    onClick={[Function]}
+  >
+    release date
+  </span>
+  <span
+    className="font-weight-bold pointer"
+    onClick={[Function]}
+  >
+    rating
+  </span>
+</div>
+`;

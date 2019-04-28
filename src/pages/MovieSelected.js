@@ -21,7 +21,9 @@ class MovieSelected extends Component {
         <Navbar>
           <SelectedFilm film={film}/>
         </Navbar>
-        <SortBar info={<SortBarInfo text={sortBarInfo}/>}/>
+        <SortBar>
+          <SortBarInfo text={sortBarInfo}/>
+        </SortBar>
         <SearchResults films={films}/>
       </div>
     );

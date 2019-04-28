@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film render Film correctly 1`] = `
+<div
+  className="col-md-4 mt-5"
+>
+  <Link
+    to="/movie/1"
+  >
+    <img
+      alt="text"
+      src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg"
+    />
+  </Link>
+  <div
+    className="row mt-3"
+  >
+    <div
+      className="col-6"
+    >
+      <span>
+        film 1
+      </span>
+    </div>
+    <div
+      className="col-2 ml-auto mr-3"
+    >
+      <span
+        className="age"
+      >
+        1332
+      </span>
+    </div>
+  </div>
+  <div>
+    <span>
+      genre 1
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchArea genreBtn click should mach snapshot 1`] = `
+<div
+  className="row mt-1 w-100"
+>
+  <div
+    className="col"
+  >
+    <span
+      className="pink font-weight-bold"
+    >
+      netflixroulette
+    </span>
+  </div>
+  <div
+    className="col-12 mt-5 white font-weight-bold"
+  >
+    <span>
+      FIND YOUR MOVIE
+    </span>
+  </div>
+  <div
+    className="col-12"
+  >
+    <form
+      className="col-12 form-inline my-2 my-lg-0 pl-0"
+    >
+      <input
+        aria-label="Search"
+        className="form-control mr-sm-2 white search-aria"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </form>
+  </div>
+  <div
+    className="col-4 mt-3 mb-4 "
+  >
+    <span
+      className="mr-3 white font-weight-bold"
+    >
+      SEARCH BY
+    </span>
+    <button
+      className="btn my-2 my-sm-0 white button-black"
+      id="titleBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      TITLE
+    </button>
+    <button
+      className="btn my-2 ml-2 my-sm-0 white button-pink"
+      id="genreBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      GENRE
+    </button>
+  </div>
+  <div
+    className="col-2 mt-3 mb-4 ml-auto search-button"
+  >
+    <Link
+      to="/"
+    >
+      <button
+        className="btn my-2 my-sm-0 white button-pink"
+        type="button"
+      >
+        SEARCH
+      </button>
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`SearchArea genreBtn click should mach snapshot 2`] = `
+<div
+  className="row mt-1 w-100"
+>
+  <div
+    className="col"
+  >
+    <span
+      className="pink font-weight-bold"
+    >
+      netflixroulette
+    </span>
+  </div>
+  <div
+    className="col-12 mt-5 white font-weight-bold"
+  >
+    <span>
+      FIND YOUR MOVIE
+    </span>
+  </div>
+  <div
+    className="col-12"
+  >
+    <form
+      className="col-12 form-inline my-2 my-lg-0 pl-0"
+    >
+      <input
+        aria-label="Search"
+        className="form-control mr-sm-2 white search-aria"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </form>
+  </div>
+  <div
+    className="col-4 mt-3 mb-4 "
+  >
+    <span
+      className="mr-3 white font-weight-bold"
+    >
+      SEARCH BY
+    </span>
+    <button
+      className="btn my-2 my-sm-0 white button-black"
+      id="titleBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      TITLE
+    </button>
+    <button
+      className="btn my-2 ml-2 my-sm-0 white button-pink"
+      id="genreBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      GENRE
+    </button>
+  </div>
+  <div
+    className="col-2 mt-3 mb-4 ml-auto search-button"
+  >
+    <Link
+      to="/"
+    >
+      <button
+        className="btn my-2 my-sm-0 white button-pink"
+        type="button"
+      >
+        SEARCH
+      </button>
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`SearchArea renders SearchArea correctly 1`] = `
+<div
+  className="row mt-1 w-100"
+>
+  <div
+    className="col"
+  >
+    <span
+      className="pink font-weight-bold"
+    >
+      netflixroulette
+    </span>
+  </div>
+  <div
+    className="col-12 mt-5 white font-weight-bold"
+  >
+    <span>
+      FIND YOUR MOVIE
+    </span>
+  </div>
+  <div
+    className="col-12"
+  >
+    <form
+      className="col-12 form-inline my-2 my-lg-0 pl-0"
+    >
+      <input
+        aria-label="Search"
+        className="form-control mr-sm-2 white search-aria"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </form>
+  </div>
+  <div
+    className="col-4 mt-3 mb-4 "
+  >
+    <span
+      className="mr-3 white font-weight-bold"
+    >
+      SEARCH BY
+    </span>
+    <button
+      className="btn my-2 my-sm-0 white button-pink"
+      id="titleBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      TITLE
+    </button>
+    <button
+      className="btn my-2 ml-2 my-sm-0 white button-black"
+      id="genreBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      GENRE
+    </button>
+  </div>
+  <div
+    className="col-2 mt-3 mb-4 ml-auto search-button"
+  >
+    <Link
+      to="/"
+    >
+      <button
+        className="btn my-2 my-sm-0 white button-pink"
+        type="button"
+      >
+        SEARCH
+      </button>
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`SearchArea titleBtn click should mach snapshot 1`] = `
+<div
+  className="row mt-1 w-100"
+>
+  <div
+    className="col"
+  >
+    <span
+      className="pink font-weight-bold"
+    >
+      netflixroulette
+    </span>
+  </div>
+  <div
+    className="col-12 mt-5 white font-weight-bold"
+  >
+    <span>
+      FIND YOUR MOVIE
+    </span>
+  </div>
+  <div
+    className="col-12"
+  >
+    <form
+      className="col-12 form-inline my-2 my-lg-0 pl-0"
+    >
+      <input
+        aria-label="Search"
+        className="form-control mr-sm-2 white search-aria"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </form>
+  </div>
+  <div
+    className="col-4 mt-3 mb-4 "
+  >
+    <span
+      className="mr-3 white font-weight-bold"
+    >
+      SEARCH BY
+    </span>
+    <button
+      className="btn my-2 my-sm-0 white button-pink"
+      id="titleBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      TITLE
+    </button>
+    <button
+      className="btn my-2 ml-2 my-sm-0 white button-black"
+      id="genreBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      GENRE
+    </button>
+  </div>
+  <div
+    className="col-2 mt-3 mb-4 ml-auto search-button"
+  >
+    <Link
+      to="/"
+    >
+      <button
+        className="btn my-2 my-sm-0 white button-pink"
+        type="button"
+      >
+        SEARCH
+      </button>
+    </Link>
+  </div>
+</div>
+`;

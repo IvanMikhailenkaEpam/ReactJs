@@ -8,4 +8,18 @@ describe('SortByOptions', () => {
 
     expect(component).toMatchSnapshot();
   });
+
+  it('passed function for first span have been called', () => {
+    const mockCallBack = jest.fn();
+    const component = shallow(<SortByOptions  onClick={mockCallBack}/>);
+    component.find("span.pointer").first().simulate('click');
+    expect(mockCallBack).toHaveBeenCalled();
+  });
+
+  it('passed function for second have been called', () => {
+    const mockCallBack = jest.fn();
+    const component = shallow(<SortByOptions  onClick={mockCallBack}/>);
+    component.find("span.pointer").last().simulate('click');
+    expect(mockCallBack).toHaveBeenCalled();
+  });
 });

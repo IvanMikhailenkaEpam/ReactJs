@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortBarInfo renders SortBarInfo correctly 1`] = `
+<div>
+  <div
+    className="col-auto ml-4 font-weight-bold"
+  >
+    <span>
+      some text
+    </span>
+  </div>
+</div>
+`;

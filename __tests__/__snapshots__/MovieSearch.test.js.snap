@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieSearch renders MovieSearch correctly 1`] = `
+<Fragment>
+  <Navbar>
+    <SearchArea />
+  </Navbar>
+  <SortBar>
+    <SortBarInfo
+      text="3 films found"
+    />
+    <SortByOptions
+      onClick={[Function]}
+    />
+  </SortBar>
+  <SearchResults
+    films={
+      Array [
+        Object {
+          "age": 1332,
+          "description": "Some info",
+          "director": "Tarantion 1",
+          "duration": "122 min",
+          "genre": "genre 1",
+          "id": 1,
+          "img": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg",
+          "name": "film 1",
+          "rating": 4.5,
+          "regards": "Oscar winning move",
+        },
+        Object {
+          "age": 2332,
+          "description": "Some info",
+          "director": "Tarantion 2",
+          "duration": "100 min",
+          "genre": "genre 1",
+          "id": 2,
+          "img": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+          "name": "film 2",
+          "rating": 4.6,
+          "regards": "",
+        },
+        Object {
+          "age": 3333,
+          "description": "Some info",
+          "director": "Tarantion 3",
+          "duration": "175 min",
+          "genre": "genre 3",
+          "id": 3,
+          "img": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+          "name": "film 3",
+          "rating": 4.4,
+          "regards": "Gold medal",
+        },
+      ]
+    }
+  />
+</Fragment>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar renders Navbar correctly 1`] = `
+<nav
+  className="navbar navbar-expand-md navbar-dark bg-dark header"
+>
+  <div
+    className="container"
+  />
+</nav>
+`;

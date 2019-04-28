@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieSelected renders MovieSearch correctly with selected film id 1`] = `
+<div>
+  <Navbar>
+    <SelectedFilm
+      film={
+        Object {
+          "age": 1332,
+          "description": "Some info",
+          "director": "Tarantion 1",
+          "duration": "122 min",
+          "genre": "genre 1",
+          "id": 1,
+          "img": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg",
+          "name": "film 1",
+          "rating": 4.5,
+          "regards": "Oscar winning move",
+        }
+      }
+    />
+  </Navbar>
+  <SortBar>
+    <SortBarInfo
+      text="Films by genre 1 genre"
+    />
+  </SortBar>
+  <SearchResults
+    films={
+      Array [
+        Object {
+          "age": 2332,
+          "description": "Some info",
+          "director": "Tarantion 2",
+          "duration": "100 min",
+          "genre": "genre 1",
+          "id": 2,
+          "img": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+          "name": "film 2",
+          "rating": 4.6,
+          "regards": "",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`MovieSelected renders MovieSearch correctly without params 1`] = `<MovieSearch />`;

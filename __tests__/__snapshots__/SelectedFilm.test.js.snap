@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedFilm renders SelectedFilm correctly 1`] = `
+<div>
+  <div
+    className="row mt-1 w-100"
+  >
+    <div
+      className="col-4"
+    >
+      <span
+        className="pink font-weight-bold"
+      >
+        netflixroulette
+      </span>
+    </div>
+    <div
+      className="col-auto ml-auto"
+    >
+      <Link
+        to="/"
+      >
+        <button
+          className="btn my-2 my-sm-0 white button-pink"
+          type="button"
+        >
+          SEARCH
+        </button>
+      </Link>
+    </div>
+  </div>
+  <div
+    className="row mt-4 mb-4"
+  >
+    <div
+      className="col-auto"
+    >
+      <img
+        alt="text"
+        src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg"
+      />
+    </div>
+    <div
+      className="col-7 ml-5"
+    >
+      <div
+        className="row mt-4"
+      >
+        <div
+          className="col-12 flex"
+        >
+          <h1
+            className="pink font-weight-bold"
+          >
+            film 1
+          </h1>
+          <span
+            className="ml-5 white font-weight-bold"
+          >
+            4.5
+          </span>
+        </div>
+        <div
+          className="col-12"
+        >
+          <span
+            className="white"
+          >
+            Oscar winning move
+          </span>
+        </div>
+        <div
+          className="col-12 mt-3"
+        >
+          <span
+            className="white mr-5"
+          >
+            1332
+          </span>
+          <span
+            className="ml-5 white"
+          >
+            122 min
+          </span>
+        </div>
+        <div
+          className="col-12 mt-3"
+        >
+          <span
+            className="white"
+          >
+            Some info
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
