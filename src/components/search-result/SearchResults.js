@@ -1,5 +1,4 @@
 import React from 'react';
-import './SearchResults.css';
 import Film from './film/Film';
 import * as PropTypes from "prop-types";
 

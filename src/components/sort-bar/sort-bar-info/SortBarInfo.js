@@ -1,5 +1,4 @@
 import React from 'react';
-import './SortBarInfo.css';
 import * as PropTypes from "prop-types";
 
 const SortBarInfo = props => {

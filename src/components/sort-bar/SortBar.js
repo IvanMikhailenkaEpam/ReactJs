@@ -1,5 +1,4 @@
 import React from 'react';
-import './SortBar.css';
 
 const SortBar = props => {
   return (

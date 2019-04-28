@@ -1,5 +1,4 @@
 import React from 'react';
-import './SortByOptions.css';
 
 const SortByOptions = ({onClick}) => {
   return (
