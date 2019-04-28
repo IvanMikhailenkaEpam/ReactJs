@@ -9,6 +9,9 @@ footer {
   text-align: left;
   font-weight: bold;
 }
-.label{
-  transform: translateY(-50%); top: 50%; position: relative;
+
+.label {
+  transform: translateY(-50%);
+  top: 50%;
+  position: relative;
 }

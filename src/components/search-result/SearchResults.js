@@ -1,25 +1,23 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './SearchResults.css';
 import Film from './film/Film';
 import * as PropTypes from "prop-types";
 
-class SearchResults extends Component {
-  static propTypes = {
-    films: PropTypes.array.isRequired,
-  };
-
-  render() {
-    const {films} = this.props;
-    return (
-      <div className="container">
-        <div className="row">
-          {
-            films.map(film => <Film key={film.id} value={film}/>)
-          }
-        </div>
+const SearchResults = props => {
+  const {films} = props;
+  return (
+    <div className="container">
+      <div className="row">
+        {
+          films.map(film => <Film key={film.id} value={film}/>)
+        }
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+SearchResults.prototype = {
+  films: PropTypes.array.isRequired
+};
 
 export default SearchResults;
