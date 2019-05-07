@@ -1,7 +1,7 @@
 export const filmModels = [
   {
     'id': 1,
-    'name': "film 1",
+    'name': "movie-selected 1",
     'genre': 'genre 1',
     'age': 1332,
     'rating': 4.5,
@@ -13,7 +13,7 @@ export const filmModels = [
   },
   {
     'id': 2,
-    'name': "film 2",
+    'name': "movie-selected 2",
     'genre': 'genre 1',
     'age': 2332,
     'rating': 4.6,
@@ -25,7 +25,7 @@ export const filmModels = [
   },
   {
     'id': 3,
-    'name': "film 3",
+    'name': "movie-selected 3",
     'genre': 'genre 3',
     'age': 3333,
     'rating': 4.4,

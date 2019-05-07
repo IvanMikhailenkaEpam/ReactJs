@@ -6,6 +6,8 @@ import SearchArea from "../components/navbar/search-area/SearchArea";
 import SortBar from "../components/sort-bar/SortBar";
 import SortByOptions from "../components/sort-bar/sort-by-options/SortByOptions";
 import {MovieSearchService} from "../serveses/move-search/MovieSearchService";
+import {changeSearchText} from "../store/movie-search/actions";
+import connect from "react-redux/es/connect/connect";
 
 const queryString = require("query-string");
 
@@ -43,4 +45,13 @@ class MovieSearch extends Component {
   }
 }
 
-export default MovieSearch;
+const mapStateToProps = state => {
+  return {
+    searchText: state.movieSearch.searchText
+  }
+};
+const mapDispatchToProps = {
+  setSearchText: changeSearchText
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieSearch);
