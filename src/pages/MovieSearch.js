@@ -6,28 +6,35 @@ import SearchArea from "../components/navbar/search-area/SearchArea";
 import SortBar from "../components/sort-bar/SortBar";
 import SortByOptions from "../components/sort-bar/sort-by-options/SortByOptions";
 import {MovieSearchService} from "../serveses/move-search/MovieSearchService";
-import {changeSearchText} from "../store/movie-search/actions";
+import {
+  changeSearchText,
+  getFilmRequest,
+  getFilmsRequest,
+  searchFilmRequest,
+  sortFilmByParam
+} from "../store/movie-search/actions";
 import connect from "react-redux/es/connect/connect";
 
 const queryString = require("query-string");
 
 class MovieSearch extends Component {
 
-  state = {
-    sortParam: ""
-  };
+  componentDidMount(){
+    this.props.getFilmsRequest();
+   // this.props.searchFilmRequest("The Dark Knight", "title");
+   // this.props.getFilmRequest(155);
+  }
 
   handleSortByParamClicked = (event, sortParam) => {
-    this.setState({
-      sortParam: sortParam
-    });
+    let {films} = this.props;
+    this.props.sortFilmByParam(films, sortParam);
+    this.forceUpdate()
   };
 
 
   render() {
+    let {films} = this.props;
     const query = queryString.parse(this.props.location ? this.props.location.search : "");
-    let films = MovieSearchService.filterFilms(query.searchBy, query.searchValue);
-    films = MovieSearchService.sortFilmsByParam(films, this.state.sortParam);
     let sortBarInfo = films.length + " films found";
 
     return (
@@ -47,11 +54,17 @@ class MovieSearch extends Component {
 
 const mapStateToProps = state => {
   return {
-    searchText: state.movieSearch.searchText
+    searchText: state.movieSearch.searchText,
+    films: state.movieSearch.films,
+    film: state.movieSearch.film
   }
 };
 const mapDispatchToProps = {
-  setSearchText: changeSearchText
+  setSearchText: changeSearchText,
+  getFilmsRequest: getFilmsRequest,
+  searchFilmRequest: searchFilmRequest,
+  getFilmRequest: getFilmRequest,
+  sortFilmByParam: sortFilmByParam
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieSearch);

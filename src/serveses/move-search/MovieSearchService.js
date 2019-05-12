@@ -13,6 +13,7 @@ export class MovieSearchService {
   }
 
   static sortFilmsByParam(films, param) {
+    console.log(param)
     if(!films || !param || param.length < 1){
       return films;
     }

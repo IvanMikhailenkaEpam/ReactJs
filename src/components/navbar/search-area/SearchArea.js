@@ -48,7 +48,7 @@ class SearchArea extends Component {
               type="text"
               placeholder="Search"
               aria-label="Search"
-              value={searchText}
+              value={searchText || ""}
               onChange={event => this.setSearchText(event.target.value)}
             />
           </form>

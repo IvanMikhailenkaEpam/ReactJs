@@ -8,8 +8,9 @@ import Footer from "./components/footer/Footer";
 import {createStore} from "redux";
 import rootReducer from './store/reducers'
 import {Provider} from "react-redux";
+import {install} from "redux-loop";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, install());
 
 class App extends Component {
   render() {
