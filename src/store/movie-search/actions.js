@@ -8,12 +8,12 @@ export const GET_FILM_SUCCESS = 'GET_FILM_SUCCESS';
 export const GET_FILM_ERROR = 'GET_FILM_ERROR';
 export const SORT_FILM_BY_PARAM = 'SORT_FILM_BY_PARAM';
 
-export const changeSearchText = text => ({
+export const setSearchValue = text => ({
   type: CHANGE_SEARCH_TEXT,
   payload: text
 });
 
-export const changeSearchParam = type => ({
+export const setSearchBy = type => ({
   type: CHANGE_SEARCH_PARAM,
   payload: type
 });

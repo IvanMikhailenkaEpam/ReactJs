@@ -20,8 +20,8 @@ import MovieSearch from "../../pages/MovieSearch";
 import {MovieSearchService} from "../../serveses/move-search/MovieSearchService";
 
 const defaultState = {
-  searchText: "",
-  searchParam: "title",
+  searchValue: "",
+  searchBy: "title",
   films: [],
   selectedFilm: {}
 };
@@ -31,12 +31,12 @@ export const movieSearchReducer = (state = defaultState, action) => {
     case CHANGE_SEARCH_TEXT:
       return {
         ...state,
-        searchText: action.payload
+        searchValue: action.payload
       };
     case CHANGE_SEARCH_PARAM:
       return {
         ...state,
-        searchParam: action.payload
+        searchBy: action.payload
       };
     case GET_FILMS_REQUEST:
       return loop(state,
@@ -78,6 +78,11 @@ export const movieSearchReducer = (state = defaultState, action) => {
         ...state,
         films: MovieSearchService.sortFilmsByParam(action.payload.films, action.payload.sortParam)
       };
+    case "LOCATION_CHANGE":
+      console.log("!!!");
+      return {
+        ...state
+      }
     default:
       return {...state}
   }

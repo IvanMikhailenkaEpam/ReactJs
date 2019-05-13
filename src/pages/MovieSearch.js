@@ -7,7 +7,8 @@ import SortBar from "../components/sort-bar/SortBar";
 import SortByOptions from "../components/sort-bar/sort-by-options/SortByOptions";
 import {MovieSearchService} from "../serveses/move-search/MovieSearchService";
 import {
-  changeSearchText,
+  setSearchBy,
+  setSearchValue,
   getFilmRequest,
   getFilmsRequest,
   searchFilmRequest,
@@ -19,10 +20,15 @@ const queryString = require("query-string");
 
 class MovieSearch extends Component {
 
-  componentDidMount(){
-    this.props.getFilmsRequest();
-   // this.props.searchFilmRequest("The Dark Knight", "title");
-   // this.props.getFilmRequest(155);
+  componentDidMount() {
+    const {searchValue, searchBy} = this.props;
+    if (searchValue && searchValue.length > 0) {
+      console.log("if");
+      this.props.searchFilmRequest(searchValue, searchBy);
+    } else {
+      console.log("else");
+      this.props.getFilmsRequest();
+    }
   }
 
   handleSortByParamClicked = (event, sortParam) => {
@@ -33,14 +39,14 @@ class MovieSearch extends Component {
 
 
   render() {
-    let {films} = this.props;
-    const query = queryString.parse(this.props.location ? this.props.location.search : "");
+    console.log("1")
+    let {films, searchValue, searchBy} = this.props;
     let sortBarInfo = films.length + " films found";
 
     return (
       <React.Fragment>
         <Navbar>
-          <SearchArea searchValue={query.searchValue}/>
+          <SearchArea searchValue={searchValue} searchBy={searchBy}/>
         </Navbar>
         <SortBar>
           <SortBarInfo text={sortBarInfo}/>
@@ -52,19 +58,22 @@ class MovieSearch extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  const query = queryString.parse(ownProps.location ? ownProps.location.search : "");
   return {
-    searchText: state.movieSearch.searchText,
+    searchValue: query.searchValue,
+    searchBy: query.searchBy,
     films: state.movieSearch.films,
-    film: state.movieSearch.film
+    film: state.movieSearch.film,
   }
 };
 const mapDispatchToProps = {
-  setSearchText: changeSearchText,
+  setSearchValue: setSearchValue,
   getFilmsRequest: getFilmsRequest,
   searchFilmRequest: searchFilmRequest,
   getFilmRequest: getFilmRequest,
-  sortFilmByParam: sortFilmByParam
+  sortFilmByParam: sortFilmByParam,
+  setSearchBy: setSearchBy
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieSearch);

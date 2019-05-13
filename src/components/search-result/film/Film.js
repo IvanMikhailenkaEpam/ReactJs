@@ -17,7 +17,11 @@ const Film = props => {
         <div className="col-6"><span>{value.title}</span></div>
         <div className="col-2 ml-auto mr-3"><span className="age">{value.release_date}</span></div>
       </div>
-      <div><span>{value.genre}</span></div>
+      <div>
+        {
+          value.genres.map(genre => <span key={genre}>{genre} </span>)
+        }
+      </div>
     </div>
   );
 
@@ -28,7 +32,8 @@ Film.prototype = {
     id: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired
+    release_date: PropTypes.string.isRequired,
+    genres: PropTypes.array
   }).isRequired
 };
 

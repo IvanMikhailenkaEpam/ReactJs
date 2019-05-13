@@ -25,12 +25,12 @@ describe('SearchArea', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('setSearchText function has been called', () => {
-    const setSearchTextMock = jest.spyOn(SearchArea.prototype, 'setSearchText');
+  it('setSearchValue function has been called', () => {
+    const setsearchValueMock = jest.spyOn(SearchArea.prototype, 'setSearchValue');
     const event = {target: {value: "someText"}};
     const component = shallow(<SearchArea />);
     component.find('input').simulate('change', event);
 
-    expect(setSearchTextMock).toHaveBeenCalled();
+    expect(setsearchValueMock).toHaveBeenCalled();
   });
 });
