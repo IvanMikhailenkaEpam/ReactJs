@@ -1,21 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './SearchArea.css';
-import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
-import {connect} from "react-redux";
-import {setSearchBy, setSearchValue} from "../../../store/movie-search/actions";
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setSearchBy, setSearchValue } from '../../../store/movie-search/actions';
 
 class SearchArea extends Component {
-
   static propTypes = {
     searchValue: PropTypes.string,
-    searchBy: PropTypes.string
+    searchBy: PropTypes.string,
   };
 
   constructor(state) {
     super(state);
-    this.props.setSearchValue(this.props.searchValue ? this.props.searchValue : "");
-    this.props.setSearchBy(this.props.searchBy ? this.props.searchBy : "")
+    this.props.setSearchValue(this.props.searchValue ? this.props.searchValue : '');
+    this.props.setSearchBy(this.props.searchBy ? this.props.searchBy : '');
   }
 
   searchByParamClick(event, param) {
@@ -24,11 +23,11 @@ class SearchArea extends Component {
 
   getSearchURL() {
     const { searchValue, searchBy } = this.props;
-    if (!searchValue || searchValue === "") {
-      return "/";
+    if (!searchValue || searchValue === '') {
+      return '/';
     }
-    return "/search?searchBy=" + searchBy + "&searchValue="
-      + searchValue;
+    return `/search?searchBy=${searchBy}&searchValue=${
+      searchValue}`;
   }
 
   setSearchValue(text) {
@@ -50,7 +49,7 @@ class SearchArea extends Component {
               type="text"
               placeholder="Search"
               aria-label="Search"
-              value={searchValue || ""}
+              value={searchValue || ''}
               onChange={event => this.setSearchValue(event.target.value)}
             />
           </form>
@@ -58,17 +57,21 @@ class SearchArea extends Component {
 
         <div className="col-4 mt-3 mb-4 ">
           <span className="mr-3 white font-weight-bold">SEARCH BY</span>
-          <button id="titleBtn"
-                  className={"btn my-2 my-sm-0 white " + (searchBy === 'title' ?
-                    "button-pink" : "button-black")}
-                  type="button" onClick={event => this.searchByParamClick(event, 'title')}
+          <button
+            id="titleBtn"
+            className={`btn my-2 my-sm-0 white ${searchBy === 'title'
+              ? 'button-pink' : 'button-black'}`}
+            type="button"
+            onClick={event => this.searchByParamClick(event, 'title')}
           >
             TITLE
           </button>
-          <button id="genreBtn"
-                  className={"btn my-2 ml-2 my-sm-0 white " + (searchBy === 'genre'
-                    ? "button-pink" : "button-black")}
-                  type="button" onClick={event => this.searchByParamClick(event, 'genre')}
+          <button
+            id="genreBtn"
+            className={`btn my-2 ml-2 my-sm-0 white ${searchBy === 'genres'
+              ? 'button-pink' : 'button-black'}`}
+            type="button"
+            onClick={event => this.searchByParamClick(event, 'genres')}
           >
             GENRE
           </button>
@@ -88,15 +91,13 @@ class SearchArea extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    searchValue: state.movieSearch.searchValue,
-    searchBy: state.movieSearch.searchBy
-  }
-};
+const mapStateToProps = state => ({
+  searchValue: state.movieSearch.searchValue,
+  searchBy: state.movieSearch.searchBy,
+});
 const mapDispatchToProps = {
-  setSearchValue: setSearchValue,
-  setSearchBy: setSearchBy
+  setSearchValue,
+  setSearchBy,
 };
 
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import './SelectedFilm.css';
-import {Link} from 'react-router-dom';
-import * as PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
+import * as PropTypes from 'prop-types';
+import Moment from 'react-moment';
 
-const SelectedFilm = props => {
-  const {film} = props;
+const SelectedFilm = (props) => {
+  const { film } = props;
   return (
     <div>
       <div className="row mt-1 w-100">
@@ -36,13 +37,19 @@ const SelectedFilm = props => {
               <span className="white">{film.tagline}</span>
             </div>
             <div className="col-12 mt-3">
-              <span className="white mr-5">{film.release_date}</span><span
-              className="ml-5 white">{film.runtime}</span>
+              <Moment format="YYYY" className="white mr-5">{film.release_date}</Moment>
+              <span
+                className="ml-5 white"
+              >
+                {film.runtime}
+                {' '}
+                min
+              </span>
             </div>
             <div className="col-12 mt-3">
-                  <span className="white">
-                    {film.overview}
-                  </span>
+              <span className="white">
+                {film.overview}
+              </span>
             </div>
           </div>
         </div>
@@ -59,8 +66,8 @@ SelectedFilm.prototype = {
     tagline: PropTypes.string,
     release_date: PropTypes.string.isRequired,
     runtime: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired
-  }).isRequired
+    overview: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default SelectedFilm;

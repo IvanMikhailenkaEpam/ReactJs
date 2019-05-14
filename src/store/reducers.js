@@ -1,9 +1,9 @@
-import {combineReducers} from "redux-loop";
-import {movieSearchReducer} from "./movie-search/reducers";
-import {routerReducer} from "react-router-redux";
+import { combineReducers } from 'redux-loop';
+import { routerReducer } from 'react-router-redux';
+import { movieSearchReducer } from './movie-search/reducers';
 
 
 export default combineReducers({
   routing: routerReducer,
-  movieSearch: movieSearchReducer
+  movieSearch: movieSearchReducer,
 });

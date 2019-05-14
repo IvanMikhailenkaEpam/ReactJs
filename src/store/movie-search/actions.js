@@ -10,58 +10,55 @@ export const SORT_FILM_BY_PARAM = 'SORT_FILM_BY_PARAM';
 
 export const setSearchValue = text => ({
   type: CHANGE_SEARCH_TEXT,
-  payload: text
+  payload: text,
 });
 
 export const setSearchBy = type => ({
   type: CHANGE_SEARCH_PARAM,
-  payload: type
+  payload: type,
 });
 
 export const getFilmsRequest = () => ({
-  type: GET_FILMS_REQUEST
+  type: GET_FILMS_REQUEST,
 });
 
 export const sortFilmByParam = (films, sortParam) => ({
   type: SORT_FILM_BY_PARAM,
   payload: {
-    films: films,
-    sortParam: sortParam
-  }
+    films,
+    sortParam,
+  },
 });
 
 export const searchFilmRequest = (searchValue, searchBy) => ({
   type: SEARCH_FILMS_REQUEST,
   payload: {
     search: searchValue,
-    searchBy: searchBy
-  }
+    searchBy,
+  },
 });
 
-export const getFilmRequest = (id) => ({
+export const getFilmRequest = id => ({
   type: GET_FILM_REQUEST,
-  payload: id
+  payload: id,
 });
 
 export const getFilmsSuccess = response => ({
   type: GET_FILMS_SUCCESS,
-  payload: response.data
+  payload: response.data,
 });
 export const getFilmSuccess = response => ({
   type: GET_FILM_SUCCESS,
-  payload: response
+  payload: response,
 });
 
 export const getFilmsError = () => ({
   type: GET_FILM_ERROR,
 });
 
-export const getFilms = () => fetch("https://reactjs-cdp.herokuapp.com/movies/").then((response) => response.json());
+export const getFilms = () => fetch('https://reactjs-cdp.herokuapp.com/movies/').then(response => response.json());
 
-export const searchFilmByQuery = (query) => {
-  return fetch(`https://reactjs-cdp.herokuapp.com/movies?search=${query.search}&searchBy=${query.searchBy}`)
-    .then((response) => response.json())
-};
+export const searchFilmByQuery = query => fetch(`https://reactjs-cdp.herokuapp.com/movies?search=${query.search}&searchBy=${query.searchBy}`)
+  .then(response => response.json());
 
-export const getFilm = (id) => fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`).then((response) => response.json());
-
+export const getFilm = id => fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`).then(response => response.json());

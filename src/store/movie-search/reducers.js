@@ -1,3 +1,4 @@
+import { Cmd, loop } from 'redux-loop';
 import {
   CHANGE_SEARCH_PARAM,
   CHANGE_SEARCH_TEXT,
@@ -13,17 +14,16 @@ import {
   searchFilmByQuery,
   getFilmSuccess,
   GET_FILM_SUCCESS,
-  SORT_FILM_BY_PARAM
-} from "./actions";
-import {Cmd, loop} from "redux-loop";
-import MovieSearch from "../../pages/MovieSearch";
-import {MovieSearchService} from "../../serveses/move-search/MovieSearchService";
+  SORT_FILM_BY_PARAM,
+} from './actions';
+import MovieSearch from '../../pages/MovieSearch';
+import { MovieSearchService } from '../../serveses/move-search/MovieSearchService';
 
 const defaultState = {
-  searchValue: "",
-  searchBy: "title",
+  searchValue: '',
+  searchBy: 'title',
   films: [],
-  selectedFilm: {}
+  selectedFilm: {},
 };
 
 export const movieSearchReducer = (state = defaultState, action) => {
@@ -31,43 +31,43 @@ export const movieSearchReducer = (state = defaultState, action) => {
     case CHANGE_SEARCH_TEXT:
       return {
         ...state,
-        searchValue: action.payload
+        searchValue: action.payload,
       };
     case CHANGE_SEARCH_PARAM:
       return {
         ...state,
-        searchBy: action.payload
+        searchBy: action.payload,
       };
     case GET_FILMS_REQUEST:
       return loop(state,
         Cmd.run(getFilms, {
           successActionCreator: getFilmsSuccess,
           failActionCreator: getFilmsError,
-          args: [action.payload]
+          args: [action.payload],
         }));
     case GET_FILM_REQUEST:
       return loop(state,
         Cmd.run(getFilm, {
           successActionCreator: getFilmSuccess,
           failActionCreator: getFilmsError,
-          args: [action.payload]
+          args: [action.payload],
         }));
     case SEARCH_FILMS_REQUEST:
       return loop(state,
         Cmd.run(searchFilmByQuery, {
           successActionCreator: getFilmsSuccess,
           failActionCreator: getFilmsError,
-          args: [action.payload]
+          args: [action.payload],
         }));
     case GET_FILMS_SUCCESS:
       return {
         ...state,
-        films: action.payload
+        films: action.payload,
       };
     case GET_FILM_SUCCESS:
       return {
         ...state,
-        film: action.payload
+        film: action.payload,
       };
     case GET_FILM_ERROR:
       return {
@@ -76,14 +76,9 @@ export const movieSearchReducer = (state = defaultState, action) => {
     case SORT_FILM_BY_PARAM:
       return {
         ...state,
-        films: MovieSearchService.sortFilmsByParam(action.payload.films, action.payload.sortParam)
+        films: MovieSearchService.sortFilmsByParam(action.payload.films, action.payload.sortParam),
       };
-    case "LOCATION_CHANGE":
-      console.log("!!!");
-      return {
-        ...state
-      }
     default:
-      return {...state}
+      return { ...state };
   }
 };
