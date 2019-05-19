@@ -16,7 +16,6 @@ import {
   GET_FILM_SUCCESS,
   SORT_FILM_BY_PARAM,
 } from './actions';
-import MovieSearch from '../../pages/MovieSearch';
 import { MovieSearchService } from '../../serveses/move-search/MovieSearchService';
 
 const defaultState = {

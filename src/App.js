@@ -20,7 +20,7 @@ const App = ({Router, location, context, store}) => (
           <Route exact path="/" component={MovieSearch}/>
           <Route path="/search" component={MovieSearch}/>
           <Route path="/movie/:id" component={MovieSelected}/>
-          <Route exact path="/" component={PageNotFoundComponent}/>
+          <Route component={PageNotFoundComponent}/>
         </Switch>
         <Footer/>
 
