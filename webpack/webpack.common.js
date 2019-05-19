@@ -1,12 +1,22 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+//const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+
+const isDevMod = process.env.NODE_ENV === 'development';
+
 
 module.exports = {
-  entry: './src/index.js',
+  mode: process.env.NODE_ENV,
+
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index_bundle.js',
-    publicPath: '/'
+    filename: 'js/[name].js',
+    path: path.resolve('./public'),
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
   module: {
     rules: [
@@ -21,26 +31,16 @@ module.exports = {
           },
         }],
       },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-        ],
-      },
     ],
   },
   devServer: {
     historyApiFallback: true,
   },
   plugins: [
-    new HtmlWebPackPlugin({
+    isDevMod ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin(),
+/*    new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-    }),
+    }),*/
   ],
 };

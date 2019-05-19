@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import Navbar from '../components/navbar/Navbar';
 import SortBarInfo from '../components/sort-bar/sort-bar-info/SortBarInfo';
 import SearchResults from '../components/search-result/SearchResults';

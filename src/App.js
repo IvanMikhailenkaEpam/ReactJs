@@ -1,37 +1,48 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; import './App.css';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { install } from 'redux-loop';
-import MovieSearch from './pages/MovieSearch';
-import ErrorBoundary from './components/error-boundary/ErrorBoundaty';
-import MovieSelected from './pages/MovieSelected';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {hot} from 'react-hot-loader';
+import {Route, Switch} from 'react-router-dom';
+import {Provider} from 'react-redux';
+
+import './index.css'
 import Footer from './components/footer/Footer';
-import rootReducer from './store/reducers';
-import PageNotFoundComponent from './pages/PageNotFoundComponent';
+import PageNotFoundComponent from "./pages/PageNotFoundComponent";
+import ErrorBoundary from "./components/error-boundary/ErrorBoundaty";
+import MovieSearch from "./pages/MovieSearch";
+import MovieSelected from "./pages/MovieSelected";
 
-const store = createStore(rootReducer, install());
 
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Provider store={store}>
-          <Router>
-            <ErrorBoundary>
-              <Switch>
-                <Route exact path="/" component={MovieSearch} />
-                <Route path="/search" component={MovieSearch} />
-                <Route path="/movie/:id" component={MovieSelected} />
-                <Route component={PageNotFoundComponent} />
-              </Switch>
-            </ErrorBoundary>
-          </Router>
-        </Provider>
-        <Footer />
-      </React.Fragment>
-    );
-  }
-}
+const App = ({Router, location, context, store}) => (
+  <Provider store={store}>
+    <ErrorBoundary>
+      <Router location={location} context={context}>
+        <Switch>
+          <Route exact path="/" component={MovieSearch}/>
+          <Route path="/search" component={MovieSearch}/>
+          <Route path="/movie/:id" component={MovieSelected}/>
+          <Route exact path="/" component={PageNotFoundComponent}/>
+        </Switch>
+        <Footer/>
 
-export default App;
+      </Router>
+    </ErrorBoundary>
+  </Provider>
+);
+
+App.propTypes = {
+  Router: PropTypes.func.isRequired,
+  location: PropTypes.string,
+  context: PropTypes.shape({
+    url: PropTypes.string,
+  }),
+  store: PropTypes.shape({
+    dispatch: PropTypes.func.isRequired,
+    getState: PropTypes.func.isRequired,
+  }).isRequired,
+};
+App.defaultProps = {
+  location: null,
+  context: null,
+};
+
+export default hot(module)(App);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import SearchResults from '../components/search-result/SearchResults';
 import SelectedFilm from '../components/navbar/seleced-film/SelectedFilm';
 import Navbar from '../components/navbar/Navbar';
