@@ -18,8 +18,10 @@ import {
 const queryString = require('query-string');
 
 class MovieSearch extends Component {
-  componentDidMount() {
+
+  componentWillMount(){
     const { searchValue, searchBy } = this.props;
+    console.log(searchValue, searchBy)
     if (searchValue && searchValue.length > 0) {
       this.props.searchFilmRequest(searchValue, searchBy);
     } else {

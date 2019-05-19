@@ -38,9 +38,5 @@ module.exports = {
   },
   plugins: [
     isDevMod ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin(),
-/*    new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html',
-    }),*/
   ],
 };

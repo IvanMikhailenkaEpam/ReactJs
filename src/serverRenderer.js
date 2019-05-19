@@ -47,20 +47,27 @@ export default function serverRenderer() {
       store={store}
     />);
 
+    store.runSaga().done.then(() => {
+      const params = qs.parse(req.query);
+
+      const htmlString = renderToString(renderApp());
+
+      if(context.url) {
+        res.writeHead(302, {
+          Location: context.url,
+        });
+        res.end();
+        return;
+      }
+
+      let preloadedState = store.getState();
+      preloadedState.movieSearch.searchBy = params.searchBy;
+      preloadedState.movieSearch.searchValue = params.searchValue;
+
+      res.send(renderHTML(htmlString, preloadedState));
+    });
+
     renderToString(renderApp());
-
-
-    if(context.url) {
-      res.writeHead(302, {
-        Location: context.url,
-      });
-      res.end();
-      return;
-    }
-
-    const htmlString = renderToString(renderApp());
-    const preloadedState = store.getState();
-
-    res.send(renderHTML(htmlString, preloadedState));
+    store.close();
   };
 }

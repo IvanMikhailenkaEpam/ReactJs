@@ -1,3 +1,5 @@
+import { call, put, takeLatest } from 'redux-saga/effects';
+
 export const CHANGE_SEARCH_TEXT = 'CHANGE_SEARCH_TEXT';
 export const CHANGE_SEARCH_PARAM = 'CHANGE_SEARCH_PARAM';
 export const GET_FILMS_REQUEST = 'GET_FILMS_REQUEST';
@@ -56,9 +58,33 @@ export const getFilmsError = () => ({
   type: GET_FILM_ERROR,
 });
 
-export const getFilms = () => fetch('https://reactjs-cdp.herokuapp.com/movies/').then(response => response.json());
+export function* getFilms() {
+  const response = yield call(fetch, 'https://reactjs-cdp.herokuapp.com/movies/');
+  const films = yield response.json();
 
-export const searchFilmByQuery = query => fetch(`https://reactjs-cdp.herokuapp.com/movies?search=${query.search}&searchBy=${query.searchBy}`)
-  .then(response => response.json());
+  yield put(getFilmsSuccess(films));
+}
+export function* watchGetFilms() {
+  yield takeLatest(GET_FILMS_REQUEST, getFilms);
+}
 
-export const getFilm = id => fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`).then(response => response.json());
+export function* getFilm(action) {
+
+  const response = yield call(fetch, `https://reactjs-cdp.herokuapp.com/movies/${action.payload}`);
+  const film = yield response.json();
+
+  yield put(getFilmSuccess(film));
+}
+export function* watchGetFilmById() {
+  yield takeLatest(GET_FILM_REQUEST, getFilm);
+}
+
+export function* searchFilmByQuery(action) {
+  const response = yield call(fetch, `https://reactjs-cdp.herokuapp.com/movies?search=${action.payload.search}&searchBy=${action.payload.searchBy}`);
+  const films = yield response.json();
+
+  yield put(getFilmsSuccess(films));
+}
+export function* watchSearchFilmByQuery() {
+  yield takeLatest(SEARCH_FILMS_REQUEST, searchFilmByQuery);
+}

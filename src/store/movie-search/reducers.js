@@ -1,4 +1,3 @@
-import { Cmd, loop } from 'redux-loop';
 import {
   CHANGE_SEARCH_PARAM,
   CHANGE_SEARCH_TEXT,
@@ -6,27 +5,39 @@ import {
   GET_FILM_REQUEST,
   GET_FILMS_SUCCESS,
   GET_FILMS_REQUEST,
-  getFilm,
-  getFilms,
-  getFilmsError,
-  getFilmsSuccess,
   SEARCH_FILMS_REQUEST,
-  searchFilmByQuery,
-  getFilmSuccess,
   GET_FILM_SUCCESS,
-  SORT_FILM_BY_PARAM,
+  SORT_FILM_BY_PARAM, watchGetFilms, watchGetFilmById, watchSearchFilmByQuery,
 } from './actions';
-import { MovieSearchService } from '../../serveses/move-search/MovieSearchService';
+import {MovieSearchService} from '../../serveses/move-search/MovieSearchService';
+import {all} from "redux-saga/effects";
+
+
+export function* filmsSaga() {
+  yield all([
+    watchGetFilms(),
+    watchGetFilmById(),
+    watchSearchFilmByQuery()
+  ]);
+}
 
 const defaultState = {
   searchValue: '',
   searchBy: 'title',
   films: [],
   selectedFilm: {},
+  loading: false,
 };
 
 export const movieSearchReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case GET_FILM_REQUEST:
+    case GET_FILMS_REQUEST:
+    case SEARCH_FILMS_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
     case CHANGE_SEARCH_TEXT:
       return {
         ...state,
@@ -37,40 +48,22 @@ export const movieSearchReducer = (state = defaultState, action) => {
         ...state,
         searchBy: action.payload,
       };
-    case GET_FILMS_REQUEST:
-      return loop(state,
-        Cmd.run(getFilms, {
-          successActionCreator: getFilmsSuccess,
-          failActionCreator: getFilmsError,
-          args: [action.payload],
-        }));
-    case GET_FILM_REQUEST:
-      return loop(state,
-        Cmd.run(getFilm, {
-          successActionCreator: getFilmSuccess,
-          failActionCreator: getFilmsError,
-          args: [action.payload],
-        }));
-    case SEARCH_FILMS_REQUEST:
-      return loop(state,
-        Cmd.run(searchFilmByQuery, {
-          successActionCreator: getFilmsSuccess,
-          failActionCreator: getFilmsError,
-          args: [action.payload],
-        }));
     case GET_FILMS_SUCCESS:
       return {
         ...state,
         films: action.payload,
+        loading: false
       };
     case GET_FILM_SUCCESS:
       return {
         ...state,
         film: action.payload,
+        loading: false
       };
     case GET_FILM_ERROR:
       return {
         ...state,
+        loading: false
       };
     case SORT_FILM_BY_PARAM:
       return {
@@ -78,6 +71,6 @@ export const movieSearchReducer = (state = defaultState, action) => {
         films: MovieSearchService.sortFilmsByParam(action.payload.films, action.payload.sortParam),
       };
     default:
-      return { ...state };
+      return {...state};
   }
 };

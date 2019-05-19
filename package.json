@@ -3,15 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js --open",
-    "build_1": "webpack --config webpack.prod.js",
-    "test": "jest --watchAll",
-    "test-c": "jest --watchAll --coverage --collectCoverageFrom=src/**/*.js",
-    "snap-update": "jest --updateSnapshot",
     "start": "cross-env NODE_ENV=development  node ./server",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack",
     "lint": "eslint \"**/*.{js,jsx}\"",
-    "prod": "cross-env NODE_ENV=production  node ./server"
+    "prod": "cross-env NODE_ENV=production  node ./server",
+    "test": "jest --watchAll",
+    "test-c": "jest --watchAll --coverage --collectCoverageFrom=src/**/*.js",
+    "snap-update": "jest --updateSnapshot"
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
@@ -21,6 +19,8 @@
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
+    "isomorphic-fetch": "^2.2.1",
+    "babel-polyfill": "^6.26.0",
     "query-string": "^6.4.2",
     "react": "16.8.4",
     "react-dom": "16.8.4",
@@ -32,10 +32,8 @@
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "redux-loop": "^5.0.0",
     "redux-promise": "^0.6.0",
-    "redux-saga": "^0.16.0",
-    "redux-thunk": "^2.3.0"
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",

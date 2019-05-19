@@ -14,7 +14,7 @@ class SearchArea extends Component {
   constructor(state) {
     super(state);
     this.props.setSearchValue(this.props.searchValue ? this.props.searchValue : '');
-    this.props.setSearchBy(this.props.searchBy ? this.props.searchBy : '');
+    this.props.setSearchBy(this.props.searchBy ? this.props.searchBy : 'title');
   }
 
   searchByParamClick(event, param) {

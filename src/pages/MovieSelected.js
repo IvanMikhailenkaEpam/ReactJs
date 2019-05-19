@@ -12,7 +12,8 @@ import {
 } from '../store/movie-search/actions';
 
 class MovieSelected extends Component {
-  componentDidMount() {
+
+  componentWillMount() {
     const { id, searchValue, searchBy } = this.props;
     this.props.getFilmRequest(id);
     this.props.searchFilmRequest(searchValue, searchBy);
