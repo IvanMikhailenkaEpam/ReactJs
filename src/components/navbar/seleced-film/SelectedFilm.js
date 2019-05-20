@@ -65,7 +65,7 @@ SelectedFilm.propTypes = {
     vote_average: PropTypes.number.isRequired,
     tagline: PropTypes.string,
     release_date: PropTypes.string.isRequired,
-    runtime: PropTypes.string.isRequired,
+    runtime: PropTypes.number,
     overview: PropTypes.string.isRequired,
   }).isRequired,
 };

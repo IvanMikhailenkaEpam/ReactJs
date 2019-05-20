@@ -9,9 +9,10 @@ import SortBar from '../components/sort-bar/SortBar';
 import SortByOptions from '../components/sort-bar/sort-by-options/SortByOptions';
 import {
   getFilmsRequest,
-  searchFilmRequest,
+  searchFilmRequest, setFilms,
   sortFilmByParam,
 } from '../store/movie-search/actions';
+import {sortFilmsByParam} from "../selectors";
 
 const queryString = require('query-string');
 
@@ -22,6 +23,7 @@ class MovieSearch extends Component {
     searchFilmRequestConnect: PropTypes.func.isRequired,
     getFilmsRequestConnect: PropTypes.func.isRequired,
     sortFilmByParamConnect: PropTypes.func.isRequired,
+    setFilmsConnect: PropTypes.func.isRequired,
     films: PropTypes.arrayOf(PropTypes.shape).isRequired,
   };
 
@@ -51,9 +53,8 @@ class MovieSearch extends Component {
   }
 
   handleSortByParamClicked = (event, sortParam) => {
-    const { films, sortFilmByParamConnect } = this.props;
-    sortFilmByParamConnect(films, sortParam);
-    this.forceUpdate();
+    const { films, setFilmsConnect } = this.props;
+    setFilmsConnect(sortFilmsByParam({sortParam: sortParam, films: films}));
   };
 
 
@@ -89,6 +90,7 @@ const mapDispatchToProps = {
   getFilmsRequestConnect: getFilmsRequest,
   searchFilmRequestConnect: searchFilmRequest,
   sortFilmByParamConnect: sortFilmByParam,
+  setFilmsConnect: setFilms,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieSearch);

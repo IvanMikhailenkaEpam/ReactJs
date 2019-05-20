@@ -9,6 +9,8 @@ export const GET_FILMS_SUCCESS = 'GET_FILMS_SUCCESS';
 export const GET_FILM_SUCCESS = 'GET_FILM_SUCCESS';
 export const GET_FILM_ERROR = 'GET_FILM_ERROR';
 export const SORT_FILM_BY_PARAM = 'SORT_FILM_BY_PARAM';
+export const CHANGE_FILMS = 'CHANGE_FILMS';
+
 
 export const setSearchValue = text => ({
   type: CHANGE_SEARCH_TEXT,
@@ -30,6 +32,11 @@ export const sortFilmByParam = (films, sortParam) => ({
     films,
     sortParam,
   },
+});
+
+export const setFilms = films => ({
+  type: CHANGE_FILMS,
+  payload: films
 });
 
 export const searchFilmRequest = (searchValue, searchBy) => ({

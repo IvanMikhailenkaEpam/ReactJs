@@ -8,9 +8,10 @@ import {
   GET_FILMS_REQUEST,
   SEARCH_FILMS_REQUEST,
   GET_FILM_SUCCESS,
-  SORT_FILM_BY_PARAM, watchGetFilms, watchGetFilmById, watchSearchFilmByQuery,
+  SORT_FILM_BY_PARAM, watchGetFilms, watchGetFilmById, watchSearchFilmByQuery, CHANGE_FILMS,
 } from './actions';
 import { MovieSearchService } from '../../serveses/move-search/MovieSearchService';
+import {sortFilmsByParam} from "../../selectors";
 
 
 export function* filmsSaga() {
@@ -53,6 +54,11 @@ export const movieSearchReducer = (state = defaultState, action) => {
         ...state,
         films: action.payload,
         loading: false,
+      };
+    case CHANGE_FILMS:
+      return {
+        ...state,
+        films: action.payload,
       };
     case GET_FILM_SUCCESS:
       return {

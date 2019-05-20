@@ -14,7 +14,7 @@ import {
 
 class MovieSelected extends Component {
   static propTypes = {
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     film: PropTypes.shape,
     searchValue: PropTypes.string,
     searchBy: PropTypes.string,

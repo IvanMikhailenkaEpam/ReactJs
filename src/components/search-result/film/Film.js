@@ -34,7 +34,7 @@ const Film = (props) => {
 
 Film.propTypes = {
   value: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     poster_path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     release_date: PropTypes.string.isRequired,
