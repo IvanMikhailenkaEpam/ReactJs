@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import SearchResults from '../components/search-result/SearchResults';
 import SelectedFilm from '../components/navbar/seleced-film/SelectedFilm';
 import Navbar from '../components/navbar/Navbar';
@@ -12,19 +13,38 @@ import {
 } from '../store/movie-search/actions';
 
 class MovieSelected extends Component {
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    film: PropTypes.shape,
+    searchValue: PropTypes.string,
+    searchBy: PropTypes.string,
+    searchFilmRequestConnect: PropTypes.func.isRequired,
+    getFilmRequestConnect: PropTypes.func.isRequired,
+    films: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  };
+
+  static defaultProps = {
+    searchValue: '',
+    searchBy: 'title',
+    film: {},
+  };
 
   componentWillMount() {
-    const { id, searchValue, searchBy } = this.props;
-    this.props.getFilmRequest(id);
-    this.props.searchFilmRequest(searchValue, searchBy);
+    const {
+      id, searchValue, searchBy, getFilmRequestConnect, searchFilmRequestConnect,
+    } = this.props;
+    getFilmRequestConnect(id);
+    searchFilmRequestConnect(searchValue, searchBy);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { id, searchValue, searchBy } = this.props;
+  componentDidUpdate(prevProps) {
+    const {
+      id, searchValue, searchBy, getFilmRequestConnect, searchFilmRequestConnect,
+    } = this.props;
     const oldId = prevProps.id;
     if (oldId !== id) {
-      this.props.getFilmRequest(id);
-      this.props.searchFilmRequest(searchValue, searchBy);
+      getFilmRequestConnect(id);
+      searchFilmRequestConnect(searchValue, searchBy);
     }
   }
 
@@ -58,8 +78,8 @@ const mapStateToProps = (state, ownProps) => ({
   film: state.movieSearch.film,
 });
 const mapDispatchToProps = {
-  searchFilmRequest,
-  getFilmRequest,
+  searchFilmRequestConnect: searchFilmRequest,
+  getFilmRequestConnect: getFilmRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieSelected);

@@ -15,8 +15,8 @@ const SearchResults = (props) => {
   );
 };
 
-SearchResults.prototype = {
-  films: PropTypes.array.isRequired,
+SearchResults.propTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
 export default SearchResults;

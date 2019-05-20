@@ -69,7 +69,6 @@ export function* watchGetFilms() {
 }
 
 export function* getFilm(action) {
-
   const response = yield call(fetch, `https://reactjs-cdp.herokuapp.com/movies/${action.payload}`);
   const film = yield response.json();
 

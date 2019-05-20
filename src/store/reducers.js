@@ -1,7 +1,7 @@
-import {routerReducer} from 'react-router-redux';
-import {filmsSaga, movieSearchReducer} from './movie-search/reducers';
-import {all} from "redux-saga/effects";
-import {combineReducers} from "redux";
+import { routerReducer } from 'react-router-redux';
+import { all } from 'redux-saga/effects';
+import { combineReducers } from 'redux';
+import { filmsSaga, movieSearchReducer } from './movie-search/reducers';
 
 function* rootSaga() {
   yield all([

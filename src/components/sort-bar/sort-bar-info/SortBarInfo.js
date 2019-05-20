@@ -9,7 +9,7 @@ const SortBarInfo = (props) => {
     </div>
   );
 };
-SortBarInfo.prototype = {
+SortBarInfo.propTypes = {
   text: PropTypes.string.isRequired,
 };
 

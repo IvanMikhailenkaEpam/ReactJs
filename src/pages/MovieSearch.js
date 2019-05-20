@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Navbar from '../components/navbar/Navbar';
 import SortBarInfo from '../components/sort-bar/sort-bar-info/SortBarInfo';
 import SearchResults from '../components/search-result/SearchResults';
@@ -7,9 +8,6 @@ import SearchArea from '../components/navbar/search-area/SearchArea';
 import SortBar from '../components/sort-bar/SortBar';
 import SortByOptions from '../components/sort-bar/sort-by-options/SortByOptions';
 import {
-  setSearchBy,
-  setSearchValue,
-  getFilmRequest,
   getFilmsRequest,
   searchFilmRequest,
   sortFilmByParam,
@@ -18,29 +16,43 @@ import {
 const queryString = require('query-string');
 
 class MovieSearch extends Component {
+  static propTypes = {
+    searchValue: PropTypes.string,
+    searchBy: PropTypes.string,
+    searchFilmRequestConnect: PropTypes.func.isRequired,
+    getFilmsRequestConnect: PropTypes.func.isRequired,
+    sortFilmByParamConnect: PropTypes.func.isRequired,
+    films: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  };
 
-  componentWillMount(){
-    const { searchValue, searchBy } = this.props;
-    console.log(searchValue, searchBy)
+  static defaultProps = {
+    searchValue: '',
+    searchBy: 'title',
+  };
+
+  componentWillMount() {
+    const {
+      searchValue, searchBy, searchFilmRequestConnect, getFilmsRequestConnect,
+    } = this.props;
     if (searchValue && searchValue.length > 0) {
-      this.props.searchFilmRequest(searchValue, searchBy);
+      searchFilmRequestConnect(searchValue, searchBy);
     } else {
-      this.props.getFilmsRequest();
+      getFilmsRequestConnect();
     }
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { searchValue, searchBy } = this.props;
+  componentDidUpdate(prevProps) {
+    const { searchValue, searchBy, searchFilmRequestConnect } = this.props;
     const oldSearchValue = prevProps.searchValue;
     const oldSearchBy = prevProps.searchBy;
     if (searchValue !== oldSearchValue || searchBy !== oldSearchBy) {
-      this.props.searchFilmRequest(searchValue, searchBy);
+      searchFilmRequestConnect(searchValue, searchBy);
     }
   }
 
   handleSortByParamClicked = (event, sortParam) => {
-    const { films } = this.props;
-    this.props.sortFilmByParam(films, sortParam);
+    const { films, sortFilmByParamConnect } = this.props;
+    sortFilmByParamConnect(films, sortParam);
     this.forceUpdate();
   };
 
@@ -74,12 +86,9 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 const mapDispatchToProps = {
-  setSearchValue,
-  getFilmsRequest,
-  searchFilmRequest,
-  getFilmRequest,
-  sortFilmByParam,
-  setSearchBy,
+  getFilmsRequestConnect: getFilmsRequest,
+  searchFilmRequestConnect: searchFilmRequest,
+  sortFilmByParamConnect: sortFilmByParam,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieSearch);

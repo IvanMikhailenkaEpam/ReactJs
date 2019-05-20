@@ -1,3 +1,4 @@
+import { all } from 'redux-saga/effects';
 import {
   CHANGE_SEARCH_PARAM,
   CHANGE_SEARCH_TEXT,
@@ -9,15 +10,14 @@ import {
   GET_FILM_SUCCESS,
   SORT_FILM_BY_PARAM, watchGetFilms, watchGetFilmById, watchSearchFilmByQuery,
 } from './actions';
-import {MovieSearchService} from '../../serveses/move-search/MovieSearchService';
-import {all} from "redux-saga/effects";
+import { MovieSearchService } from '../../serveses/move-search/MovieSearchService';
 
 
 export function* filmsSaga() {
   yield all([
     watchGetFilms(),
     watchGetFilmById(),
-    watchSearchFilmByQuery()
+    watchSearchFilmByQuery(),
   ]);
 }
 
@@ -36,7 +36,7 @@ export const movieSearchReducer = (state = defaultState, action) => {
     case SEARCH_FILMS_REQUEST:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case CHANGE_SEARCH_TEXT:
       return {
@@ -52,18 +52,18 @@ export const movieSearchReducer = (state = defaultState, action) => {
       return {
         ...state,
         films: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_FILM_SUCCESS:
       return {
         ...state,
         film: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_FILM_ERROR:
       return {
         ...state,
-        loading: false
+        loading: false,
       };
     case SORT_FILM_BY_PARAM:
       return {
@@ -71,6 +71,6 @@ export const movieSearchReducer = (state = defaultState, action) => {
         films: MovieSearchService.sortFilmsByParam(action.payload.films, action.payload.sortParam),
       };
     default:
-      return {...state};
+      return { ...state };
   }
 };

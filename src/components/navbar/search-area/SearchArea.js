@@ -7,18 +7,19 @@ import { setSearchBy, setSearchValue } from '../../../store/movie-search/actions
 
 class SearchArea extends Component {
   static propTypes = {
-    searchValue: PropTypes.string,
-    searchBy: PropTypes.string,
+    searchValue: PropTypes.string.isRequired,
+    searchBy: PropTypes.string.isRequired,
+    setSearchValueConnect: PropTypes.func.isRequired,
+    setSearchByConnect: PropTypes.func.isRequired,
   };
 
   constructor(state) {
     super(state);
-    this.props.setSearchValue(this.props.searchValue ? this.props.searchValue : '');
-    this.props.setSearchBy(this.props.searchBy ? this.props.searchBy : 'title');
-  }
-
-  searchByParamClick(event, param) {
-    this.props.setSearchBy(param);
+    const {
+      searchValue, searchBy, setSearchValueConnect, setSearchByConnect,
+    } = this.props;
+    setSearchValueConnect(searchValue || '');
+    setSearchByConnect(searchBy || 'title');
   }
 
   getSearchURL() {
@@ -31,7 +32,13 @@ class SearchArea extends Component {
   }
 
   setSearchValue(text) {
-    this.props.setSearchValue(text);
+    const { setSearchValueConnect } = this.props;
+    setSearchValueConnect(text);
+  }
+
+  searchByParamClick(event, param) {
+    const { setSearchByConnect } = this.props;
+    setSearchByConnect(param);
   }
 
   render() {
@@ -96,8 +103,8 @@ const mapStateToProps = state => ({
   searchBy: state.movieSearch.searchBy,
 });
 const mapDispatchToProps = {
-  setSearchValue,
-  setSearchBy,
+  setSearchValueConnect: setSearchValue,
+  setSearchByConnect: setSearchBy,
 };
 
 

@@ -58,7 +58,7 @@ const SelectedFilm = (props) => {
   );
 };
 
-SelectedFilm.prototype = {
+SelectedFilm.propTypes = {
   film: PropTypes.shape({
     poster_path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

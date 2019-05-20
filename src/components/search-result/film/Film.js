@@ -32,7 +32,7 @@ const Film = (props) => {
   );
 };
 
-Film.prototype = {
+Film.propTypes = {
   value: PropTypes.shape({
     id: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
